@@ -9,29 +9,32 @@ return {
     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
     "MunifTanjim/nui.nvim",
   },
-  cmd = "Neotree",
-  keys = {
-    { "\\", ":Neotree reveal<CR>", desc = "NeoTree reveal", silent = true },
-  },
-  opts = {
-    filesystem = {
+  config = function()
+    require("neo-tree").setup {
       window = {
+        position = "left",
+        width = 30,
         mappings = {
-          position = "right",
           ["\\"] = "close_window",
         },
       },
-      filtered_items = {
-        visible = true,
-        show_hidden_count = true,
-        hide_dotfiles = false,
-        hide_gitignored = true,
-        hide_by_name = {
-          ".git",
-          ".DS_Store",
+      filesystem = {
+        filtered_items = {
+          visible = true,
+          show_hidden_count = true,
+          hide_dotfiles = true,
+          hide_gitignored = true,
+          hide_by_name = {
+            ".git",
+            ".DS_Store",
+          },
+          never_show = {},
         },
-        never_show = {},
       },
-    },
+    }
+  end,
+  cmd = "Neotree",
+  keys = {
+    { "\\", ":Neotree reveal<CR>", desc = "NeoTree reveal", silent = true },
   },
 }
