@@ -17,6 +17,7 @@ return {
     filesystem = {
       window = {
         mappings = {
+          position = "right",
           ["\\"] = "close_window",
         },
       },
