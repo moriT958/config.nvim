@@ -19,6 +19,10 @@ return {
         sidebars = "transparent",
         floats = "transparent",
       },
+      -- relative line number color
+      on_colors = function(colors)
+        colors.fg_gutter = "#b2b8cf"
+      end,
     }
     vim.cmd [[colorscheme tokyonight]]
   end,
