@@ -11,4 +11,4 @@ Started from [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim)
 ## memo
 
 - lua formatting
-`stylua <path>`: execute in the directory that stylua.toml exits.
+  `stylua <path>`: execute in the directory that stylua.toml exits.
