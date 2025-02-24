@@ -29,6 +29,7 @@ require("lazy").setup({
   require "plugins.indent_line",
   require "plugins.lint",
   require "plugins.autopairs",
+  require "plugins.hello",
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
