@@ -30,6 +30,7 @@ require("lazy").setup({
   require "plugins.lint",
   require "plugins.autopairs",
   require "plugins.hello",
+  require "plugins.dev",
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
