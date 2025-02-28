@@ -32,6 +32,7 @@ require("lazy").setup({
   require("plugins.autopairs"),
   require("plugins.hello"),
   require("plugins.present"),
+  require("plugins.nvim-scrollbar"),
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
