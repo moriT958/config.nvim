@@ -8,6 +8,7 @@ return {
       handle = {
         color = colors.bg_highlight,
       },
+      throttle_ms = 50,
       marks = {
         Search = { color = colors.orange },
         Error = { color = colors.error },
