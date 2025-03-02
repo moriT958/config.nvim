@@ -31,7 +31,6 @@ require("lazy").setup({
   require("plugins.lint"),
   require("plugins.autopairs"),
   require("plugins.hello"),
-  require("plugins.present"),
   require("plugins.nvim-scrollbar"),
 }, {
   ui = {
