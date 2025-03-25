@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 function create_symlink() {
     src="$1"
@@ -9,7 +9,7 @@ function create_symlink() {
         unlink "$HOME/.config/nvim"
     fi
 
-    echo "🔗 $src → $dest Creating symbolicLink..."
+    echo "🔗 Creating symbolicLink... ($src → $dest)"
     ln -sfn "$src" "$dest"
 }
 
