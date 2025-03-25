@@ -1,27 +1,22 @@
-#!/bin/bash
+#!/bin/zsh
 
-# NOTE:
-# brewをインストールしておく
-
-create_symlink() {
+function create_symlink() {
     src="$1"
     dest="$2"
 
-    # Skip if already exit
+    # remove if already exit
     if [ -L "$dest" ] && [ "$(readlink -f "$dest")" = "$(readlink -f "$src")" ]; then
-        return
+        unlink "$HOME/.config/nvim"
     fi
 
-    echo "🔗 $src → $dest"
+    echo "🔗 $src → $dest Creating symbolicLink..."
     ln -sfn "$src" "$dest"
 }
 
-create_symlink "$HOME/dotfiles/.config" "$HOME/.config"
-create_symlink "$HOME/dotfiles/.ssh" "$HOME/.ssh"
-
-create_symlink "$HOME/dotfiles/.zshrc" "$HOME/.zshrc"
-
-create_symlink "$HOME/dotfiles/.Brewfile" "$HOME/.Brewfile"
-brew bundle --global
-
-echo "✅ Completed!"
+# Check if Neovim installed
+if ! command -v nvim &>/dev/null; then
+    echo "[ERROR] Neovim is not installed. Please install first."
+else
+    create_symlink "$HOME/config.nvim/nvim" "$HOME/.config/nvim"
+    echo "✅ Successfully Completed!"
+fi

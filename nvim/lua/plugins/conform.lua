@@ -8,7 +8,7 @@ return {
     {
       "<leader>f",
       function()
-        require("conform").format { async = true, lsp_format = "fallback" }
+        require("conform").format({ async = true, lsp_format = "fallback" })
       end,
       mode = "",
       desc = "[F]ormat buffer",
@@ -38,6 +38,7 @@ return {
       go = { "goimports", "gofmt" },
       html = { "prettierd", "prettier", stop_after_first = true },
       markdown = { "prettier" },
+      zsh = { "shfmt" },
     },
   },
 }
