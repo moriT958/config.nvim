@@ -12,7 +12,7 @@ return {
       -- NOTE:
       -- タブでのインデントガイドを適用
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "go", "make" },
+        pattern = { "go", "make", "c" },
         callback = function()
           require("ibl").setup_buffer(0, { indent = { tab_char = "│" } })
         end,
