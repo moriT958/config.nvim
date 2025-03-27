@@ -4,7 +4,7 @@ return {
   config = function()
     local colors = require("tokyonight.colors").setup()
 
-    require("scrollbar").setup {
+    require("scrollbar").setup({
       handle = {
         color = colors.bg_highlight,
       },
@@ -17,6 +17,6 @@ return {
         Hint = { color = colors.hint },
         Misc = { color = colors.purple },
       },
-    }
+    })
   end,
 }

@@ -47,14 +47,14 @@ return {
             group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
             callback = function(event2)
               vim.lsp.buf.clear_references()
-              vim.api.nvim_clear_autocmds { group = "kickstart-lsp-highlight", buffer = event2.buf }
+              vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
             end,
           })
         end
 
         if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
           map("<leader>th", function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
           end, "[T]oggle Inlay [H]ints")
         end
       end,
@@ -67,7 +67,7 @@ return {
       for type, icon in pairs(signs) do
         diagnostic_signs[vim.diagnostic.severity[type]] = icon
       end
-      vim.diagnostic.config { signs = { text = diagnostic_signs } }
+      vim.diagnostic.config({ signs = { text = diagnostic_signs } })
     end
 
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -92,9 +92,9 @@ return {
     vim.list_extend(ensure_installed, {
       "stylua",
     })
-    require("mason-tool-installer").setup { ensure_installed = ensure_installed }
+    require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-    require("mason-lspconfig").setup {
+    require("mason-lspconfig").setup({
       handlers = {
         function(server_name)
           local server = servers[server_name] or {}
@@ -103,6 +103,6 @@ return {
           require("lspconfig")[server_name].setup(server)
         end,
       },
-    }
+    })
   end,
 }

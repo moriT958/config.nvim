@@ -7,7 +7,7 @@ return {
     "MunifTanjim/nui.nvim",
   },
   config = function()
-    require("neo-tree").setup {
+    require("neo-tree").setup({
       window = {
         position = "left",
         width = 30,
@@ -28,7 +28,7 @@ return {
           never_show = {},
         },
       },
-    }
+    })
   end,
   cmd = "Neotree",
   keys = {

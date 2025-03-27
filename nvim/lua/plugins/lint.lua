@@ -1,4 +1,3 @@
--- Linting
 return {
   {
     "mfussenegger/nvim-lint",

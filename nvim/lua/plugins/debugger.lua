@@ -46,7 +46,7 @@ return {
     {
       "<leader>B",
       function()
-        require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ")
+        require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
       end,
       desc = "Debug: Set Breakpoint",
     },
@@ -59,18 +59,18 @@ return {
     },
   },
   config = function()
-    local dap = require "dap"
-    local dapui = require "dapui"
+    local dap = require("dap")
+    local dapui = require("dapui")
 
-    require("mason-nvim-dap").setup {
+    require("mason-nvim-dap").setup({
       automatic_installation = true,
       handlers = {},
       ensure_installed = {
         "delve",
       },
-    }
+    })
 
-    dapui.setup {
+    dapui.setup({
       icons = { expanded = "▾", collapsed = "▸", current_frame = "*" },
       controls = {
         icons = {
@@ -85,16 +85,16 @@ return {
           disconnect = "⏏",
         },
       },
-    }
+    })
 
     dap.listeners.after.event_initialized["dapui_config"] = dapui.open
     dap.listeners.before.event_terminated["dapui_config"] = dapui.close
     dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
-    require("dap-go").setup {
+    require("dap-go").setup({
       delve = {
-        detached = vim.fn.has "win32" == 0,
+        detached = vim.fn.has("win32") == 0,
       },
-    }
+    })
   end,
 }
