@@ -29,9 +29,16 @@ return {
       }
     end,
 
+    -- ft => filetype (:echo &filetype)
     formatters_by_ft = {
       lua = { "stylua" },
-      python = { "isort", "black" },
+      python = function(bufnr)
+        if require("conform").get_formatter_info("ruff_format", bufnr).available then
+          return { "ruff_format" }
+        else
+          return { "isort", "black" }
+        end
+      end,
       javascript = { "prettierd", "prettier", stop_after_first = true },
       go = { "goimports", "gofmt" },
       html = { "prettierd", "prettier", stop_after_first = true },
