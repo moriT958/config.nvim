@@ -40,6 +40,7 @@ return {
         end
       end,
       javascript = { "prettierd", "prettier", stop_after_first = true },
+      json = { "prettier" },
       go = { "goimports", "gofmt" },
       html = { "prettierd", "prettier", stop_after_first = true },
       markdown = { "prettier" },
