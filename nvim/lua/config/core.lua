@@ -25,6 +25,8 @@ vim.opt.termguicolors = true
 vim.opt.winblend = 0
 vim.opt.pumblend = 0
 
+vim.o.scroll = 10
+
 -- OSとNeovimのクリップボードを共有
 vim.schedule(function()
   vim.opt.clipboard = "unnamedplus"
