@@ -39,6 +39,7 @@ return {
           return { "isort", "black" }
         end
       end,
+      java = { "google-java-format" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
       json = { "prettier" },
       go = { "goimports", "gofmt" },
