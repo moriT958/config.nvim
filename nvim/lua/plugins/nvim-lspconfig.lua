@@ -84,6 +84,7 @@ return {
           },
         },
       },
+      pyright = {},
     }
 
     require("mason").setup()
