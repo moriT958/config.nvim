@@ -45,6 +45,7 @@ return {
       go = { "goimports", "gofmt" },
       html = { "prettierd", "prettier", stop_after_first = true },
       markdown = { "prettier" },
+      toml = { "pyproject-fmt" },
       zsh = { "shfmt" },
     },
   },
