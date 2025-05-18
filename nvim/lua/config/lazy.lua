@@ -1,38 +1,59 @@
 -- [[ Install Plugin Manager (Lazy) ]]
--- (https://lazy.folke.io/installation)よりコピー
+-- (https://lazy.folke.io/installation)
+
+-- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
   local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
   if vim.v.shell_error ~= 0 then
-    error("Error cloning lazy.nvim:\n" .. out)
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
   end
-end ---@diagnostic disable-next-line: undefined-field
+end
 vim.opt.rtp:prepend(lazypath)
+
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
+-- Setup lazy.nvim
+require("lazy").setup({
+  spec = {
+    -- import your plugins
+    { import = "plugins" },
+  },
+  -- Configure any other settings here. See the documentation for more details.
+  -- colorscheme that will be used when installing plugins.
+  install = { colorscheme = { "habamax" } },
+  -- automatically check for plugin updates
+  checker = { enabled = true },
+})
 
 -- [[ Plugins ]]
 require("lazy").setup({
-  require("plugins.vim-sleuth"),
   require("plugins.gitsigins"),
   require("plugins.which-key"),
   require("plugins.telescope"),
   require("plugins.lazydev"),
-  require("plugins.luvit-meta"),
   require("plugins.nvim-lspconfig"),
   require("plugins.formatter"),
   require("plugins.nvim-cmp"),
   require("plugins.color-scheme"),
   require("plugins.todo-comments"),
-  require("plugins.mini"),
   require("plugins.nvim-treesitter"),
   require("plugins.neo-tree"),
   require("plugins.debugger"),
-  require("plugins.indent_line"),
+  require("plugins.indent-line"),
   require("plugins.lint"),
   require("plugins.autopairs"),
-  require("plugins.hello"),
-  require("plugins.nvim-scrollbar"),
-  require("plugins.neoscroll"),
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {

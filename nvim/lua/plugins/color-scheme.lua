@@ -12,12 +12,8 @@ return {
         gitsigns = true,
         nvimtree = true,
         treesitter = true,
-        mini = {
-          enabled = true,
-          indentscope_color = "",
-        },
       },
     })
-    vim.cmd.colorscheme("catppuccin-frappe")
+    vim.cmd.colorscheme("catppuccin-mocha")
   end,
 }

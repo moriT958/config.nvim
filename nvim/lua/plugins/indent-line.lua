@@ -2,15 +2,11 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    opts = {
-      --indent = { char = "│" },
-      --scope = { enabled = true },
-    },
+    opts = {},
     config = function()
       require("ibl").setup()
 
-      -- NOTE:
-      -- タブでのインデントガイドを適用
+      -- Apply indent guide by Tab
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "go", "make", "c" },
         callback = function()
