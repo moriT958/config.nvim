@@ -13,6 +13,11 @@ return {
         nvimtree = true,
         treesitter = true,
       },
+      custom_highlights = function(colors)
+        return {
+          LineNr = { fg = colors.overlay0 },
+        }
+      end,
     })
     vim.cmd.colorscheme("catppuccin-frappe")
   end,
