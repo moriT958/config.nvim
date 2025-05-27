@@ -44,7 +44,7 @@ return {
       json = { "prettier" },
       go = { "goimports", "gofmt" },
       html = { "prettierd", "prettier", stop_after_first = true },
-      markdown = { "prettier" },
+      markdown = { "markdownlint", "prettier" },
       toml = { "pyproject-fmt" },
       zsh = { "shfmt" },
     },
