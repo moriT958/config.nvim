@@ -8,7 +8,7 @@ return {
 
       -- Apply indent guide by Tab
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "go", "make", "c" },
+        pattern = { "go", "make", "c", "astro" },
         callback = function()
           require("ibl").setup_buffer(0, { indent = { tab_char = "│" } })
         end,

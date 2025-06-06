@@ -11,6 +11,7 @@ return {
       window = {
         position = "left",
         width = 30,
+        auto_expand_width = false,
         mappings = {
           ["\\"] = "close_window",
         },

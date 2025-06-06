@@ -41,6 +41,7 @@ return {
       end,
       java = { "google-java-format" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
+      astro = { "prettierd", "prettier", stop_after_first = true },
       json = { "prettier" },
       go = { "goimports", "gofmt" },
       html = { "prettierd", "prettier", stop_after_first = true },
