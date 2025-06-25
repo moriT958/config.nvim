@@ -46,6 +46,7 @@ return {
       typescript = { "biome" },
       astro = { "prettierd", "prettier", stop_after_first = true },
       json = { "biome" },
+      yaml = { "prettierd", "prettier", stop_after_first = true },
       markdown = { "markdownlint", "prettier" },
       go = { "goimports", "gofmt" },
       toml = { "pyproject-fmt" },
