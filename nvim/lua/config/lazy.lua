@@ -46,7 +46,7 @@ require("lazy").setup({
   require("plugins.nvim-lspconfig"),
   require("plugins.formatter"),
   require("plugins.nvim-cmp"),
-  require("plugins.color-scheme"),
+  require("plugins.color-theme"),
   require("plugins.todo-comments"),
   require("plugins.nvim-treesitter"),
   require("plugins.neo-tree"),
