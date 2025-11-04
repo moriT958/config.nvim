@@ -45,6 +45,8 @@ return {
       javascript = { "prettierd", "prettier", stop_after_first = true },
       typescript = { "prettierd", "prettier", stop_after_first = true },
       astro = { "prettierd", "prettier", stop_after_first = true },
+      jsx = { "prettierd", "prettier", stop_after_first = true },
+      tsx = { "prettierd", "prettier", stop_after_first = true },
       json = { "prettierd", "prettier", stop_after_first = true },
       yaml = { "prettierd", "prettier", stop_after_first = true },
       sql = { "prettierd", "prettier", stop_after_first = true },
