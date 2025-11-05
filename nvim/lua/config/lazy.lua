@@ -56,6 +56,7 @@ require("lazy").setup({
   require("plugins.autopairs"),
   require("plugins.hello"),
   require("plugins.lualine"),
+  require("plugins.nvim-treesitter-context"),
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
