@@ -1,22 +1,33 @@
 #!/bin/bash
+set -e
 
-function create_symlink() {
-    src="$1"
-    dest="$2"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SRC="$SCRIPT_DIR/nvim"
+DEST="$HOME/.config/nvim"
 
-    # remove if already exit
-    if [ -L "$dest" ] && [ "$(readlink -f "$dest")" = "$(readlink -f "$src")" ]; then
-        unlink "$HOME/.config/nvim"
-    fi
-
-    echo "🔗 Creating symbolicLink... ($src → $dest)"
-    ln -sfn "$src" "$dest"
-}
-
-# Check if Neovim installed
+# Check Neovim installed
 if ! command -v nvim &>/dev/null; then
     echo "[ERROR] Neovim is not installed. Please install first."
-else
-    create_symlink "$HOME/config.nvim/nvim" "$HOME/.config/nvim"
-    echo "✅ Successfully Completed!"
+    exit 1
 fi
+
+# Ensure parent dir exists
+mkdir -p "$(dirname "$DEST")"
+
+# Already correct symlink?
+if [ -L "$DEST" ] && [ "$(readlink "$DEST")" = "$SRC" ]; then
+    echo "ℹ️  Symlink already exists: $DEST"
+    exit 0
+fi
+
+# Backup existing file/dir
+if [ -e "$DEST" ] || [ -L "$DEST" ]; then
+    echo "⚠️  Existing nvim config found, backing up..."
+    mv "$DEST" "${DEST}.bak.$(date +%s)"
+fi
+
+echo "🔗 Creating symbolic link: $SRC → $DEST"
+ln -s "$SRC" "$DEST"
+
+echo "✅ Successfully Completed!"
+
