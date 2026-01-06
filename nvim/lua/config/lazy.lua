@@ -35,30 +35,7 @@ require("lazy").setup({
   install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
-})
-
--- [[ Plugins ]]
-require("lazy").setup({
-  require("plugins.gitsigins"),
-  require("plugins.which-key"),
-  require("plugins.telescope"),
-  require("plugins.lazydev"),
-  require("plugins.nvim-lspconfig"),
-  require("plugins.formatter"),
-  require("plugins.nvim-cmp"),
-  require("plugins.color-theme"),
-  require("plugins.todo-comments"),
-  require("plugins.nvim-treesitter"),
-  require("plugins.neo-tree"),
-  require("plugins.debugger"),
-  require("plugins.indent-line"),
-  require("plugins.lint"),
-  require("plugins.autopairs"),
-  require("plugins.hello"),
-  require("plugins.lualine"),
-  require("plugins.nvim-treesitter-context"),
-  require("plugins.outline"),
-}, {
+  -- UI icons configuration
   ui = {
     icons = vim.g.have_nerd_font and {} or {
       cmd = "⌘",
