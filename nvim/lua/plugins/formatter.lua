@@ -40,6 +40,7 @@ return {
       go = { "goimports", "gofmt" },
       toml = { "pyproject-fmt" },
       zsh = { "shfmt" },
+      ruby = { "rubocop" },
     },
   },
 }
