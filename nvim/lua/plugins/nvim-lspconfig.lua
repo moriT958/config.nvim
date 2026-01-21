@@ -95,6 +95,7 @@ return {
       ensure_installed = {
         "gopls", -- Go の LSP
         "lua_ls", -- Lua の LSP
+        "ruby-lsp", -- Ruby の LSP
         "stylua", -- Lua の Formatter
         "prettier", -- JavaScript の Formatter
         "rubocop", -- Ruby の Formatter / Linter
