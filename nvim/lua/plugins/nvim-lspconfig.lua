@@ -91,14 +91,21 @@ return {
 
     require("mason").setup()
 
-    local ensure_installed = vim.tbl_keys(servers or {})
-    vim.list_extend(ensure_installed, {
-      "stylua",
+    require("mason-tool-installer").setup({
+      ensure_installed = {
+        "gopls", -- Go の LSP
+        "lua_ls", -- Lua の LSP
+        "stylua", -- Lua の Formatter
+        "prettier", -- JavaScript の Formatter
+        "rubocop", -- Ruby の Formatter / Linter
+        "delve", -- Go の DAP
+      },
+      auto_update = false,
+      run_on_start = true,
     })
 
     require("mason-lspconfig").setup({
       automatic_enable = true,
-      ensure_installed = ensure_installed,
       handlers = {
         function(server_name)
           local server = servers[server_name] or {}
