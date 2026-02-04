@@ -93,13 +93,20 @@ return {
 
     require("mason-tool-installer").setup({
       ensure_installed = {
-        "gopls", -- Go の LSP
-        "lua_ls", -- Lua の LSP
-        "ruby-lsp", -- Ruby の LSP
-        "stylua", -- Lua の Formatter
-        "prettier", -- JavaScript の Formatter
-        "rubocop", -- Ruby の Formatter / Linter
-        "delve", -- Go の DAP
+        -- Lua
+        "lua_ls",
+        "stylua",
+        -- JavaScript
+        "prettier",
+        -- Ruby
+        "rubocop",
+        "ruby-lsp",
+        -- Go
+        "delve",
+        "gopls",
+        --Haskell
+        "haskell-language-server",
+        "ormolu",
       },
       auto_update = false,
       run_on_start = true,

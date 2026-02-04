@@ -41,6 +41,7 @@ return {
       toml = { "pyproject-fmt" },
       zsh = { "shfmt" },
       ruby = { "rubocop" },
+      haskell = { "ormolu" },
     },
   },
 }
