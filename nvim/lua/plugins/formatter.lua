@@ -43,5 +43,9 @@ return {
       ruby = { "rubocop" },
       haskell = { "ormolu" },
     },
+    format_on_save = {
+      timeout_ms = 500,
+      lsp_format = "fallback",
+    },
   },
 }

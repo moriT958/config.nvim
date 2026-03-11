@@ -4,10 +4,10 @@ return {
   priority = 1000,
   config = function()
     require("kanagawa").setup({
-      transparent = true, -- do not set background color
-      theme = "dragon", -- Load "wave" theme
-      background = { -- map the value of 'background' option to a theme
-        dark = "dragon", -- try "dragon" !
+      transparent = true,
+      theme = "wave",
+      background = {
+        dark = "wave",
         light = "lotus",
       },
       overrides = function(colors)
